@@ -2,8 +2,8 @@ var express = require('express'),
 	passport = require('passport'),
 	util = require('util'),
 	session = require('express-session'),
-	SteamStrategy = require('passport-steam').Strategy;
-
+	SteamStrategy = require('passport-steam').Strategy,
+	config = require('./local/config');
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -38,7 +38,7 @@ var app = express();
 
 
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 app.use(session({
     secret: 'your secret',
